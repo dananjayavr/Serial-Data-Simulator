@@ -1,8 +1,10 @@
 ## Getting Started
 
+- Build the project (4 targets)
+- Optionally, install `socat` and `pyserial` using `pip` (or equivalent)
+
 ### Using TCP Sockets
 
-- Build the project (4 targets)
 - In one terminal, run `tcp_server`
 - Run `generate_firmware` to generate a random binary file
 - Then run, `./tcp_client firmware.bin` to send the binary file
