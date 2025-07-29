@@ -1,13 +1,15 @@
 ## Getting Started
 
-- Build the project (3 targets)
-- In one terminal, run `app`
+### Using TCP Sockets
+
+- Build the project (4 targets)
+- In one terminal, run `tcp_server`
 - Run `generate_firmware` to generate a random binary file
-- Then run, `./server firmware.bin` to send the binary file
-- app should successfully receive the firmware
+- Then run, `./tcp_client firmware.bin` to send the binary file
+- server should successfully receive the firmware
 - Compare the 'sameness' of the two files by: `cmp firmware.bin firmware_received.bin && echo "Files match!" || echo "Files differ!"`
 
-### Using Serial
+### Using (Virtual) Serial Terminal
 
 - Use `socat` to create a virtual serial pair
 
@@ -18,6 +20,10 @@ socat -d -d pty,raw,echo=0 pty,raw,echo=0
 # PTY is /dev/pts/4
 ```
 
-Here, /dev/pts/3 is app while /dev/pts/4 is Python script
+Here, `/dev/pts/3` is server while `/dev/pts/4` is client.
 
+- Run serial_server (e.g., `./serial_server /dev/pts/2`).
+- In another terminal, run `./serial_client firmware.bin /dev/pts/3`. If using Python script, run `serial_client.py firmware.bin /dev/pts/3`
+- Server should acknoledge the received data. After a 5 second timeout, it should quit.
+- Use the same command as above to compare the two files
 
