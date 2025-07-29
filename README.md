@@ -29,3 +29,6 @@ Here, `/dev/pts/3` is server while `/dev/pts/4` is client.
 - Server should acknoledge the received data. After a 5 second timeout, it should quit.
 - Use the same command as above to compare the two files
 
+## Further Reading
+
+- Socat : https://www.baeldung.com/linux/socat-command
